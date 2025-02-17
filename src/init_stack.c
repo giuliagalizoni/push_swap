@@ -35,10 +35,29 @@ void	init_a(t_node **a, char **argv)
 	while(argv[i])
 	{
 		// check syntax errors
-		// call atol
+		if (check_syntax(argv[i]))
+		{
+			ft_printf("syntax error\n");
+			free_stack(a);
+			ft_error();
+		}
+		// convert string to long
 		n = ft_atol(argv[i]);
 		// check overflow
+		if (n > 2147483647 || n < -2147483648)
+		{
+			ft_printf("overflow error\n");
+			free_stack(a);
+			ft_error();
+		}
 		// check repetition
+		if (check_dup(*a, n))
+		{
+			ft_printf("repetition error\n");
+			free_stack(a);
+			ft_error();
+		}
 		// add node
+		i++;
 	}
 }

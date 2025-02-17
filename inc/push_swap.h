@@ -2,6 +2,7 @@
 # define PUSH_SWAP_H
 
 # include <limits.h> // checar depois
+# include <stdio.h> // TIRAR
 # include "../libft/libft.h"
 
 typedef struct s_node
@@ -18,5 +19,9 @@ typedef struct s_node
 
 
 void	ft_error(void);
+void	init_a(t_node **a, char **argv);
+int		check_syntax(char *str);
+int		check_dup(t_node *stack, int value);
+void	free_stack(t_node **stack);
 
 #endif

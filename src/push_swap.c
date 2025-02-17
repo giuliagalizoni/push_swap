@@ -17,6 +17,7 @@ int	main(int argc, char **argv)
 		ft_error();// erro ou fazer nada?
 	if (argc == 2)
 		argv = ft_split(argv[1], ' ');
+	init_a(&a, argv + 1);
 }
 // Declare pointers to 2 lists - stack a and b
 	// Set the pointers to NULL
