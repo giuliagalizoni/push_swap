@@ -1,2 +1,2 @@
 test:
-	cc src/*.c -Llibft -lft -Ilibft
+	cc -Wall -Wextra -Werror src/*.c -Llibft -lft -Ilibft -o push_swap

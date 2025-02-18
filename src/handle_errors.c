@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   handle_errors.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ggalizon <ggalizon@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/18 12:08:48 by ggalizon          #+#    #+#             */
+/*   Updated: 2025/02/18 12:15:14 by ggalizon         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/push_swap.h"
 
 int	check_syntax(char *str)
 {
-	if (!(*str == '+' || *str == '-'|| (*str >= '0' && *str <= '9')))
+	if (!(*str == '+' || *str == '-' || (*str >= '0' && *str <= '9')))
 		return (1);
 	if ((*str == '+' || *str == '-') && !(str[1] >= '0' && str[1] <= '9'))
 		return (1);
@@ -14,9 +26,9 @@ int	check_syntax(char *str)
 	return (0);
 }
 
-int check_dup(t_node *stack, int value)
+int	check_dup(t_node *stack, int value)
 {
-	t_node *curr;
+	t_node	*curr;
 
 	curr = stack;
 	while (curr)
@@ -28,10 +40,10 @@ int check_dup(t_node *stack, int value)
 	return (0);
 }
 
-void free_stack(t_node **stack)
+void	free_stack(t_node **stack)
 {
-	t_node *temp;
-	t_node *curr;
+	t_node	*temp;
+	t_node	*curr;
 
 	if (!stack)
 		return ;
