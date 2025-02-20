@@ -3,35 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggalizon <ggalizon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: giuliagalizoni <giuliagalizoni@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 17:35:50 by ggalizon          #+#    #+#             */
-/*   Updated: 2025/02/18 17:48:36 by ggalizon         ###   ########.fr       */
+/*   Updated: 2025/02/20 22:53:53 by giuliagaliz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static void	push(t_node **from, t_node **to)
+static void	push(t_node **dst, t_node **src)
 {
 	t_node	*pushed;
 
-	if (!from || !*from)
+	if (!*src)
 		return ;
-	pushed = *from;
-	*from = (*from)->next;
-	if (*from)
-		(*from)->prev = NULL;
-	if (!*to)
+	pushed = *src;
+	*src = (*src)->next;
+	if (*src)
+		(*src)->prev = NULL;
+	if (!*dst)
 	{
-		*to = pushed;
+		*dst = pushed;
 		pushed->next = NULL;
 	}
 	else
 	{
-		pushed->next = *to;
+		pushed->next = *dst;
 		pushed->next->prev = pushed;
-		*to = pushed;
+		*dst = pushed;
 	}
 }
 
@@ -42,7 +42,7 @@ void	pa(t_node **a, t_node **b, int print)
 		ft_printf("pa\n");
 }
 
-void	pb(t_node **a, t_node **b, int print)
+void	pb(t_node **b, t_node **a, int print)
 {
 	push(b, a);
 	if (!print)

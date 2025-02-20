@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggalizon <ggalizon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: giuliagalizoni <giuliagalizoni@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:33:08 by ggalizon          #+#    #+#             */
-/*   Updated: 2025/02/18 17:50:46 by ggalizon         ###   ########.fr       */
+/*   Updated: 2025/02/20 12:58:17 by giuliagaliz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,4 +93,17 @@ int	is_sorted(t_node *stack)
 		curr = curr->next;
 	}
 	return (1);
+}
+
+t_node	*get_cheapest(t_node *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack)
+	{
+		if (stack->cheapest)
+			return (stack);
+		stack = stack->next;
+	}
+	return (NULL);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggalizon <ggalizon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: giuliagalizoni <giuliagalizoni@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:08:57 by ggalizon          #+#    #+#             */
-/*   Updated: 2025/02/18 17:51:06 by ggalizon         ###   ########.fr       */
+/*   Updated: 2025/02/20 21:46:05 by giuliagaliz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,18 @@ void	free_stack(t_node **stack);
 t_node	*find_last(t_node *stack);
 t_node	*find_max(t_node *stack);
 t_node	*find_min(t_node *stack);
+t_node	*get_cheapest(t_node *stack);
 int		is_sorted(t_node *stack);
 int		stack_len(t_node *stack);
+void	rotate_both(t_node **a, t_node **b, t_node *cheapest);
+void	rev_rotate_both(t_node **a, t_node **b, t_node *cheapest);
 
 // sort
 void	small_sort(t_node **stack);
+void	sort_stack(t_node **a, t_node **b);
+void	init_nodes_a(t_node *a, t_node *b);
+void	init_nodes_b(t_node *a, t_node *b);
+void	current_index(t_node *stack);
 
 void	sa(t_node **a, int print);
 void	sb(t_node **b, int print);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggalizon <ggalizon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: giuliagalizoni <giuliagalizoni@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:08:44 by ggalizon          #+#    #+#             */
-/*   Updated: 2025/02/18 17:54:20 by ggalizon         ###   ########.fr       */
+/*   Updated: 2025/02/20 15:27:06 by giuliagaliz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ static long	ft_atol(const char *str)
 	return (number * flag);
 }
 
+
+
 static void	add_node(t_node **stack, long n)
 {
 	t_node	*new;
@@ -52,6 +54,7 @@ static void	add_node(t_node **stack, long n)
 	new->value = n;
 	new->next = NULL;
 	new->cheapest = 0;
+	new->target = NULL;
 	if (!(*stack))
 	{
 		*stack = new;

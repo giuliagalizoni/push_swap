@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggalizon <ggalizon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: giuliagalizoni <giuliagalizoni@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:08:25 by ggalizon          #+#    #+#             */
-/*   Updated: 2025/02/18 17:55:34 by ggalizon         ###   ########.fr       */
+/*   Updated: 2025/02/20 22:54:13 by giuliagaliz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,15 @@ void	print_stack(t_node *stack)
 	curr = stack;
 	while (curr)
 	{
-		ft_printf("%d\n", curr->value);
+		ft_printf("%d - ", curr->value);
+		ft_printf("index: %d - ", curr->index);
+		ft_printf("above median: %s - ", curr->above_median ? "yes" : "no");
+		ft_printf("cheapest: %s - ", curr->cheapest ? "yes" : "no");
+		ft_printf("cost: %d - ", curr->cost);
+		if (curr->target)
+			ft_printf("target: %d", curr->target->value);
 		curr = curr->next;
+		ft_printf("\n");
 	}
 	ft_printf("stack printed\n");
 }
@@ -44,7 +51,6 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 		argv = ft_split(argv[1], ' ');
 	init_a(&a, argv + 1);
-	print_stack(a);
 	if (!(is_sorted(a)))
 	{
 		if (stack_len(a) == 2)
@@ -52,10 +58,11 @@ int	main(int argc, char **argv)
 		else if (stack_len(a) == 3)
 			small_sort(&a);
 		else
-			pa(&a, &b, 0); // TEMPORARY
+			sort_stack(&a, &b);
 	}
-	print_stack(a);
-	print_stack(b);
+	is_sorted(a) ? print_stack(a) : ft_printf("KO\n");
+	free_stack(&a);
+	free_stack(&b);
 	return (0);
 }
 // Declare pointers to 2 lists - stack a and b
