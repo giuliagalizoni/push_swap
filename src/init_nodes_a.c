@@ -27,11 +27,10 @@ static void	set_target_a(t_node *a, t_node *b)
 	t_node	*target;
 	long	match;
 
-	while(a)
+	while (a)
 	{
-		match = LONG_MIN; // LONG_MIN check if I can use library
+		match = LONG_MIN;
 		curr = b;
-
 		while (curr)
 		{
 			if (curr->value < a->value && curr->value > match)
@@ -45,19 +44,18 @@ static void	set_target_a(t_node *a, t_node *b)
 			a->target = find_max(b);
 		else
 			a->target = target;
-
 		a = a->next;
 	}
 }
 
-static void set_cost_a(t_node *a, t_node *b)
+static void	set_cost_a(t_node *a, t_node *b)
 {
 	int	len_a;
 	int	len_b;
 
 	len_a = stack_len(a);
 	len_b = stack_len(b);
-	while(a) //talvez haja uma diferença entre mac e linux aqui
+	while (a)
 	{
 		a->cost = a->index;
 		if (!(a->above_median))
@@ -69,6 +67,7 @@ static void set_cost_a(t_node *a, t_node *b)
 		a = a->next;
 	}
 }
+
 void	set_cheapest(t_node *stack)
 {
 	long	cheapest_value;
@@ -76,8 +75,8 @@ void	set_cheapest(t_node *stack)
 
 	if (!stack)
 		return ;
-	cheapest_value = LONG_MAX; // LONG_MAX check if I can use library
-	while(stack)
+	cheapest_value = LONG_MAX;
+	while (stack)
 	{
 		if (stack->cost < cheapest_value)
 		{

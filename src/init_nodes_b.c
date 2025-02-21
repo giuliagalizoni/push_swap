@@ -6,11 +6,11 @@ static void	set_target_b(t_node *b, t_node *a)
 	t_node	*target;
 	long	match;
 
-	while(b)
+	while (b)
 	{
-		match = LONG_MAX; // check here too
+		match = LONG_MAX;
 		curr = a;
-		while(curr)
+		while (curr)
 		{
 			if (curr->value > b->value && curr->value < match)
 			{
@@ -26,6 +26,7 @@ static void	set_target_b(t_node *b, t_node *a)
 		b = b->next;
 	}
 }
+
 void	init_nodes_b(t_node *a, t_node *b)
 {
 	current_index(a);

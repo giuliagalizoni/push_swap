@@ -6,7 +6,7 @@
 /*   By: giuliagalizoni <giuliagalizoni@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:08:44 by ggalizon          #+#    #+#             */
-/*   Updated: 2025/02/20 15:27:06 by giuliagaliz      ###   ########.fr       */
+/*   Updated: 2025/02/21 13:42:51 by giuliagaliz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ static long	ft_atol(const char *str)
 	}
 	return (number * flag);
 }
-
-
 
 static void	add_node(t_node **stack, long n)
 {
@@ -79,20 +77,17 @@ void	init_a(t_node **a, char **argv)
 	{
 		if (check_syntax(argv[i]))
 		{
-			ft_printf("syntax error\n"); // debuging purposes
 			free_stack(a);
 			ft_error();
 		}
 		n = ft_atol(argv[i]);
 		if (n > 2147483647 || n < -2147483648)
 		{
-			ft_printf("overflow error\n"); // debuging purposes
 			free_stack(a);
 			ft_error();
 		}
 		if (check_dup(*a, n))
 		{
-			ft_printf("repetition error\n"); // debuging purposes
 			free_stack(a);
 			ft_error();
 		}

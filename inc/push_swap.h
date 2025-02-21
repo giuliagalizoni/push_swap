@@ -6,7 +6,7 @@
 /*   By: giuliagalizoni <giuliagalizoni@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:08:57 by ggalizon          #+#    #+#             */
-/*   Updated: 2025/02/20 21:46:05 by giuliagaliz      ###   ########.fr       */
+/*   Updated: 2025/02/21 13:56:09 by giuliagaliz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	sort_stack(t_node **a, t_node **b);
 void	init_nodes_a(t_node *a, t_node *b);
 void	init_nodes_b(t_node *a, t_node *b);
 void	current_index(t_node *stack);
+void	set_top(t_node **stack, t_node *cheapest, char name);
 
 void	sa(t_node **a, int print);
 void	sb(t_node **b, int print);
