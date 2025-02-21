@@ -6,15 +6,14 @@
 /*   By: giuliagalizoni <giuliagalizoni@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:08:57 by ggalizon          #+#    #+#             */
-/*   Updated: 2025/02/21 13:56:09 by giuliagaliz      ###   ########.fr       */
+/*   Updated: 2025/02/21 15:54:32 by giuliagaliz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <limits.h> // checar depois
-# include <stdio.h> // TIRAR
+# include <limits.h>
 # include "../libft/libft.h"
 
 typedef struct s_node
@@ -28,9 +27,6 @@ typedef struct s_node
 	struct s_node	*next;
 	struct s_node	*prev;
 }	t_node;
-
-// TIRAR DEPOIS
-void	print_stack(t_node *stack);
 
 void	ft_error(void);
 void	init_a(t_node **a, char **argv);
