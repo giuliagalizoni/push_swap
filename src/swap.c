@@ -6,7 +6,7 @@
 /*   By: ggalizon <ggalizon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 13:53:19 by ggalizon          #+#    #+#             */
-/*   Updated: 2025/02/18 17:31:22 by ggalizon         ###   ########.fr       */
+/*   Updated: 2025/02/24 17:42:45 by ggalizon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,24 +30,21 @@ static void	swap(t_node **node)
 	*node = second;
 }
 
-void	sa(t_node **a, int print)
+void	sa(t_node **a)
 {
 	swap(a);
-	if (!print)
-		ft_printf("sa\n");
+	ft_printf("sa\n");
 }
 
-void	sb(t_node **b, int print)
+void	sb(t_node **b)
 {
 	swap(b);
-	if (!print)
-		ft_printf("sb\n");
+	ft_printf("sb\n");
 }
 
-void	ss(t_node **a, t_node **b, int print)
+void	ss(t_node **a, t_node **b)
 {
 	swap(a);
 	swap(b);
-	if (!print)
-		ft_printf("ss\n");
+	ft_printf("ss\n");
 }

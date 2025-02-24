@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: giuliagalizoni <giuliagalizoni@student.    +#+  +:+       +#+        */
+/*   By: ggalizon <ggalizon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:08:57 by ggalizon          #+#    #+#             */
-/*   Updated: 2025/02/21 15:54:32 by giuliagaliz      ###   ########.fr       */
+/*   Updated: 2025/02/24 17:51:46 by ggalizon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,17 +51,19 @@ void	init_nodes_a(t_node *a, t_node *b);
 void	init_nodes_b(t_node *a, t_node *b);
 void	current_index(t_node *stack);
 void	set_top(t_node **stack, t_node *cheapest, char name);
+void	final_sort(t_node **a);
+void	sort_five(t_node **a, t_node **b);
 
-void	sa(t_node **a, int print);
-void	sb(t_node **b, int print);
-void	ss(t_node **a, t_node **b, int print);
-void	ra(t_node **a, int print);
-void	rb(t_node **b, int print);
-void	rr(t_node **a, t_node **b, int print);
-void	rra(t_node **a, int print);
-void	rrb(t_node **b, int print);
-void	rrr(t_node **a, t_node **b, int print);
-void	pa(t_node **a, t_node **b, int print);
-void	pb(t_node **a, t_node **b, int print);
+void	sa(t_node **a);
+void	sb(t_node **b);
+void	ss(t_node **a, t_node **b);
+void	ra(t_node **a);
+void	rb(t_node **b);
+void	rr(t_node **a, t_node **b);
+void	rra(t_node **a);
+void	rrb(t_node **b);
+void	rrr(t_node **a, t_node **b);
+void	pa(t_node **a, t_node **b);
+void	pb(t_node **a, t_node **b);
 
 #endif

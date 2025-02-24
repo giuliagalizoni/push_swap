@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: giuliagalizoni <giuliagalizoni@student.    +#+  +:+       +#+        */
+/*   By: ggalizon <ggalizon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 17:35:50 by ggalizon          #+#    #+#             */
-/*   Updated: 2025/02/20 22:53:53 by giuliagaliz      ###   ########.fr       */
+/*   Updated: 2025/02/24 17:49:04 by ggalizon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,14 @@ static void	push(t_node **dst, t_node **src)
 	}
 }
 
-void	pa(t_node **a, t_node **b, int print)
+void	pa(t_node **a, t_node **b)
 {
 	push(a, b);
-	if (!print)
-		ft_printf("pa\n");
+	ft_printf("pa\n");
 }
 
-void	pb(t_node **b, t_node **a, int print)
+void	pb(t_node **b, t_node **a)
 {
 	push(b, a);
-	if (!print)
-		ft_printf("pb\n");
+	ft_printf("pb\n");
 }

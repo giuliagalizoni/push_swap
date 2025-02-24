@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: giuliagalizoni <giuliagalizoni@student.    +#+  +:+       +#+        */
+/*   By: ggalizon <ggalizon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:08:44 by ggalizon          #+#    #+#             */
-/*   Updated: 2025/02/21 13:42:51 by giuliagaliz      ###   ########.fr       */
+/*   Updated: 2025/02/24 18:41:08 by ggalizon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	init_a(t_node **a, char **argv)
 			ft_error();
 		}
 		n = ft_atol(argv[i]);
-		if (n > 2147483647 || n < -2147483648)
+		if (n > INT_MAX || n < INT_MIN)
 		{
 			free_stack(a);
 			ft_error();
