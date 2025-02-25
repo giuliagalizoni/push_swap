@@ -6,7 +6,7 @@
 /*   By: ggalizon <ggalizon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:08:44 by ggalizon          #+#    #+#             */
-/*   Updated: 2025/02/24 18:41:08 by ggalizon         ###   ########.fr       */
+/*   Updated: 2025/02/25 15:31:37 by ggalizon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,20 +75,17 @@ void	init_a(t_node **a, char **argv)
 	i = 0;
 	while (argv[i])
 	{
-		if (check_syntax(argv[i]))
+		if (check_syntax(argv[i]) || check_dup(*a, n))
 		{
 			free_stack(a);
+			free_split(argv);
 			ft_error();
 		}
 		n = ft_atol(argv[i]);
 		if (n > INT_MAX || n < INT_MIN)
 		{
 			free_stack(a);
-			ft_error();
-		}
-		if (check_dup(*a, n))
-		{
-			free_stack(a);
+			free_split(argv);
 			ft_error();
 		}
 		add_node(a, n);

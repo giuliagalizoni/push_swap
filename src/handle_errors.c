@@ -6,7 +6,7 @@
 /*   By: ggalizon <ggalizon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:08:48 by ggalizon          #+#    #+#             */
-/*   Updated: 2025/02/24 19:04:14 by ggalizon         ###   ########.fr       */
+/*   Updated: 2025/02/25 11:07:33 by ggalizon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,21 @@ int	check_syntax(char *str)
 	{
 		if (!(*str >= '0' && *str <= '9'))
 			return (1);
+	}
+	return (0);
+}
+
+int	check_initial_syntax(const char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (!((str[i] >= '0' && str[i] <= '9') || str[i] == ' '
+				|| str[i] == '-' || str[i] == '+'))
+			return (1);
+		i++;
 	}
 	return (0);
 }
@@ -56,4 +71,10 @@ void	free_stack(t_node **stack)
 		curr = temp;
 	}
 	*stack = NULL;
+}
+
+void	ft_error(void)
+{
+	write(2, "Error\n", 6);
+	exit(1);
 }

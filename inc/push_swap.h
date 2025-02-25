@@ -6,7 +6,7 @@
 /*   By: ggalizon <ggalizon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:08:57 by ggalizon          #+#    #+#             */
-/*   Updated: 2025/02/24 17:51:46 by ggalizon         ###   ########.fr       */
+/*   Updated: 2025/02/25 15:31:08 by ggalizon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ typedef struct s_node
 void	ft_error(void);
 void	init_a(t_node **a, char **argv);
 int		check_syntax(char *str);
+int		check_initial_syntax(const char *str);
 int		check_dup(t_node *stack, int value);
 void	free_stack(t_node **stack);
-
-// handle stack
+void	free_split(char **split);
 t_node	*find_last(t_node *stack);
 t_node	*find_max(t_node *stack);
 t_node	*find_min(t_node *stack);
@@ -43,8 +43,6 @@ int		is_sorted(t_node *stack);
 int		stack_len(t_node *stack);
 void	rotate_both(t_node **a, t_node **b, t_node *cheapest);
 void	rev_rotate_both(t_node **a, t_node **b, t_node *cheapest);
-
-// sort
 void	small_sort(t_node **stack);
 void	sort_stack(t_node **a, t_node **b);
 void	init_nodes_a(t_node *a, t_node *b);
@@ -53,7 +51,6 @@ void	current_index(t_node *stack);
 void	set_top(t_node **stack, t_node *cheapest, char name);
 void	final_sort(t_node **a);
 void	sort_five(t_node **a, t_node **b);
-
 void	sa(t_node **a);
 void	sb(t_node **b);
 void	ss(t_node **a, t_node **b);

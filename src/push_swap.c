@@ -6,68 +6,80 @@
 /*   By: ggalizon <ggalizon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:08:25 by ggalizon          #+#    #+#             */
-/*   Updated: 2025/02/24 19:03:49 by ggalizon         ###   ########.fr       */
+/*   Updated: 2025/02/25 15:43:43 by ggalizon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	ft_error(void)
+static char	*merge_arguments(char **args)
 {
-	write(2, "Error\n", 6);
-	exit(1);
+	char	*merged;
+	char	*temp;
+	int		i;
+
+	merged = ft_strdup("");
+	if (!merged)
+		return (NULL);
+	i = 0;
+	while (args[i])
+	{
+		temp = ft_strjoin(merged, args[i]);
+		free(merged);
+		if (!temp)
+			return (NULL);
+		merged = ft_strjoin(temp, " ");
+		free(temp);
+		if (!merged)
+			return (NULL);
+		i++;
+	}
+	return (merged);
 }
-// Debugging purposes
-// void	print_stack(t_node *stack)
-// {
-// 	t_node	*curr;
 
-// 	curr = stack;
-// 	while (curr)
-// 	{
-// 		ft_printf("%d - ", curr->value);
-// 		ft_printf("index: %d - ", curr->index);
-// 		ft_printf("above median: %s - ", curr->above_median ? "yes" : "no");
-// 		ft_printf("cheapest: %s - ", curr->cheapest ? "yes" : "no");
-// 		ft_printf("cost: %d - ", curr->cost);
-// 		if (curr->target)
-// 			ft_printf("target: %d", curr->target->value);
-// 		curr = curr->next;
-// 		ft_printf("\n");
-// 	}
-// 	ft_printf("stack printed\n");
-// }
-static int	check_initial_syntax(const char *str)
+void	free_split(char **split)
 {
-    int	i;
+	int	i;
 
-    i = 0;
-    while (str[i])
-    {
-        if (!((str[i] >= '0' && str[i] <= '9') || str[i] == ' ' || str[i] == '-' || str[i] == '+'))
-            return (1);
-        i++;
-    }
-    return (0);
+	if (!split)
+		return ;
+	i = 0;
+	while (split[i])
+		free(split[i++]);
+	free(split);
+}
+
+static char	**parse_args(char **argv)
+{
+	char	*merged_args;
+	char	**split_args;
+
+	merged_args = merge_arguments(argv);
+	if (!merged_args || check_initial_syntax(merged_args))
+	{
+		free(merged_args);
+		ft_error();
+	}
+	split_args = ft_split(merged_args, ' ');
+	free(merged_args);
+	if (!split_args)
+		ft_error();
+	return (split_args);
 }
 
 int	main(int argc, char **argv)
 {
 	t_node	*a;
 	t_node	*b;
+	char	**split_args;
 
 	a = NULL;
 	b = NULL;
-	if (argc < 2 || (argc == 2 && !argv[1][0]))
+	if (argc < 2 || (argc == 2 && (!argv[1][0] || argv[1][0] == ' ')))
 		ft_error();
-	if (argc == 2)
-	{
-		if (check_initial_syntax(argv[1]))
-			ft_error();
-		if (ft_strchr(argv[1], ' '))
-			argv = ft_split(argv[1], ' ');
-	}
-	init_a(&a, argv + 1);
+	split_args = parse_args(argv + 1);
+	init_a(&a, split_args);
+	free_split(split_args);
 	if (!(is_sorted(a)))
 	{
 		if (stack_len(a) == 2)
